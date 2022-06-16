@@ -1,3 +1,6 @@
+import shuffle from "lodash/shuffle";
+import { Card } from "../models/card";
+
 const isPrime = (num: number): boolean => {
   if (num < 2) return false;
 
@@ -16,4 +19,14 @@ export const getPrimeNumbersFromRange = (a: number, b: number): number[] => {
     if (item) result.push(i);
   }
   return result;
+};
+
+export const getCards = (a: number, b: number) => {
+  const primes = getPrimeNumbersFromRange(a, b);
+  const shapedPrimes = primes.map((elem) => ({
+    number: elem,
+    visible: true,
+  }));
+  const cards = shuffle([...shapedPrimes, ...shapedPrimes]) as Card[];
+  return cards;
 };
