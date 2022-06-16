@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles/main.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="game-layout u-text-center">
+      <h1 className="heading-primary u-margin-bottom-medium">
+        Mahjong like game
+      </h1>
+      <div className="mahjong">
+        <div className="card card--visible">1</div>
+        <div className="card">2</div>
+        <div className="card">3</div>
+        <div className="card">4</div>
+        <div className="card">5</div>
+        <div className="card">6</div>
+        <div className="card">7</div>
+        <div className="card">8</div>
+        <div className="card">9</div>
+        <div className="card">1</div>
+        <div className="card">2</div>
+        <div className="card">3</div>
+        <div className="card">4</div>
+        <div className="card">5</div>
+        <div className="card">67</div>
+        <div className="card">8</div>
+        <div className="card">9</div>
+        <div className="card">4</div>
+        <div className="card">5</div>
+        <div className="card">61</div>
+        <div className="card">2</div>
+        <div className="card">3</div>
+        <div className="card">45</div>
+        <div className="card">6</div>
+        <div className="card">78</div>
+        <div className="card">9</div>
+        <div className="card">4</div>
+        <div className="card">5</div>
+        <div className="card">6</div>
+        <div className="card">45</div>
+      </div>
     </div>
   );
 }
