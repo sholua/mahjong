@@ -1,0 +1,8 @@
+.mahjong {
+  width: 70rem;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(10, 3.2rem);
+  grid-gap: 4rem;
+}
