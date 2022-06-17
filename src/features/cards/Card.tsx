@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { Card as CardModel } from "../../models/card";
+import { useDispatch } from "react-redux";
+import { cardOpend } from "./cardsSlice";
 
 interface Props {
-  number: number;
+  card: CardModel;
+  index: number;
 }
 
-function Card({ number }: Props) {
-  const [visible, setVisible] = useState(false);
+function Card({ card: { number, visible }, index }: Props) {
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    setVisible(true);
+    dispatch({ type: cardOpend.type, payload: index });
   };
 
   return (

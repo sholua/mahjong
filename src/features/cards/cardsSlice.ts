@@ -9,14 +9,19 @@ const cardsSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
+    allCardsClosed: (cards, action) => {
+      cards.forEach((card) => {
+        card.visible = false;
+      });
+    },
     cardOpend: (cards, action) => {
-      const index = action.payload.index;
+      const index = action.payload;
       cards[index].visible = true;
     },
   },
 });
 
-export const { cardOpend } = cardsSlice.actions;
+export const { allCardsClosed, cardOpend } = cardsSlice.actions;
 
 export default cardsSlice.reducer;
 
