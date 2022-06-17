@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import { Card } from "../../models/card";
-import { getCards } from "../../services/primeNumbersService";
+import { getCards } from "../../services/cardsService";
 
 const cards = getCards(1, 50);
 
