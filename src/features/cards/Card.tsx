@@ -1,7 +1,7 @@
 import React from "react";
 import { Card as CardModel } from "../../models/card";
-import { useDispatch } from "react-redux";
-import { cardOpened } from "./cardsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { cardOpened, getOpenPair } from "./cardsSlice";
 
 interface Props {
   card: CardModel;
@@ -10,8 +10,11 @@ interface Props {
 
 function Card({ card: { number, visible }, index }: Props) {
   const dispatch = useDispatch();
+  const openPair = useSelector(getOpenPair);
 
   const handleClick = () => {
+    if (openPair.length === 1 && openPair[0] === index) return false;
+
     dispatch({ type: cardOpened.type, payload: index });
   };
 
