@@ -1,10 +1,17 @@
 import React, { useEffect } from "react";
 import Card from "./Card";
 import { useSelector, useDispatch } from "react-redux";
-import { allCardsClosed, getAllCards } from "./cardsSlice";
+import {
+  allCardsClosed,
+  cardsClosed,
+  getAllCards,
+  getOpenPair,
+  openPairCleared,
+} from "./cardsSlice";
 
 function Cards() {
   const cards = useSelector(getAllCards);
+  const openPair = useSelector(getOpenPair);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,6 +24,24 @@ function Cards() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (openPair.length === 2) {
+      if (cards[openPair[0]].number !== cards[openPair[1]].number) {
+        timer = setTimeout(() => {
+          dispatch({ type: cardsClosed.type });
+        }, 500);
+      } else {
+        dispatch({ type: openPairCleared.type });
+      }
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [cards, dispatch, openPair]);
 
   return (
     <div className="mahjong">
