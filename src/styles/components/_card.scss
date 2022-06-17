@@ -3,8 +3,10 @@
   height: 4rem;
   background-color: $color-secondary-light;
   border-radius: 0.6rem;
-  color: transparent;
-  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+
+  &:hover {
+    cursor: pointer;
+  }
 
   display: grid;
   justify-content: center;
@@ -14,5 +16,13 @@
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
     color: $color-black;
     border: 1px solid $color-secondary-dark;
+  }
+
+  &--hidden {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+
+    > span {
+      display: none;
+    }
   }
 }
