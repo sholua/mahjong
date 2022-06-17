@@ -13,7 +13,11 @@ function Card({ card: { number, visible }, index }: Props) {
   const openPair = useSelector(getOpenPair);
 
   const handleClick = () => {
-    if (openPair.length === 1 && openPair[0] === index) return false;
+    if (
+      (openPair.length === 1 && openPair[0] === index) ||
+      openPair.length === 2
+    )
+      return false;
 
     dispatch({ type: cardOpened.type, payload: index });
   };
