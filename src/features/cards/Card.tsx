@@ -23,7 +23,7 @@ function Card({ card: { number, visible }, index }: Props) {
       onClick={handleClick}
       className={`card card--${visible ? "visible" : "hidden"}`}
     >
-      {number}
+      <span>{number}</span>
     </div>
   );
 }
