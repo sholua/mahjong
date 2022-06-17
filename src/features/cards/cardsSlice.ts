@@ -1,14 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import { Card } from "../../models/card";
-import { getCards } from "../../services/cardsService";
-
-const cards = getCards(1, 50);
 
 const cardsSlice = createSlice({
   name: "cards",
   initialState: {
-    list: cards,
+    list: [] as Card[],
     openPair: [] as number[],
   },
   reducers: {

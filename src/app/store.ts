@@ -2,10 +2,19 @@ import { AnyAction, configureStore, ThunkDispatch } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 
 import cardsReducer from "../features/cards/cardsSlice";
+import { getCards } from "../services/cardsService";
+
+const cards = getCards(1, 50);
 
 const store = configureStore({
   reducer: {
     cards: cardsReducer,
+  },
+  preloadedState: {
+    cards: {
+      list: cards,
+      openPair: [],
+    },
   },
   devTools: process.env.NODE_ENV !== "production",
 });
